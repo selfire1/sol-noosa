@@ -77,6 +77,7 @@ export default function SectionCars() {
           1024: { slidesPerView: 3 },
         }}
         className="!pb-12"
+        style={{ '--swiper-theme-color': 'var(--sol-brown-deep)' } as React.CSSProperties}
       >
         {cars.map((car) => (
           <SwiperSlide key={car.id} className="h-auto">
@@ -90,7 +91,9 @@ export default function SectionCars() {
               </div>
               <ul className="flex gap-3 text-sm text-sol-brown-soft">
                 <li>{car.seats} seats</li>
-                <li aria-hidden="true" className="opacity-50">·</li>
+                <li aria-hidden="true" className="opacity-50">
+                  ·
+                </li>
                 <li>{car.transmission}</li>
               </ul>
               <div className="mt-auto flex items-center justify-between gap-3 pt-2">
@@ -106,10 +109,6 @@ export default function SectionCars() {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="flex justify-center mt-8">
-        <CallButton size="lg" />
-      </div>
     </section>
   )
 }
