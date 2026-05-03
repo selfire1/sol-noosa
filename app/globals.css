@@ -1,11 +1,12 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-
   --sol-yellow: #e59908;
   --sol-brown: #815413;
   --sol-beige: #f3e6d6;
@@ -99,7 +100,6 @@
 /* } */
 
 .dark {
-
   --background: oklch(0.145 0 0);
 
   --foreground: oklch(0.985 0 0);
@@ -173,4 +173,12 @@
   html {
     @apply font-sans;
   }
+}
+
+.page-container {
+  --padding: 2rem;
+  --max-width: 1280px;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  @apply mx-auto;
 }

@@ -10,3 +10,7 @@ Pages:
 TODO:
 
 - JSONLD Schema
+- Fonts
+- Consolidate spacing
+- Check responsiveness
+- Spam protection for forms. Hook up to resend
