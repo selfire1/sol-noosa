@@ -6,8 +6,13 @@ import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 import { Label } from './ui/label'
 import CallButton from './call-button'
+import { cn } from '@/lib/utils'
 
-export default function ContactForm() {
+type ContactFormProps = {
+  onDarkSurface?: boolean
+}
+
+export default function ContactForm({ onDarkSurface = false }: ContactFormProps) {
   const form = useForm({
     defaultValues: {
       fullName: '',
@@ -27,7 +32,11 @@ export default function ContactForm() {
         e.stopPropagation()
         form.handleSubmit()
       }}
-      className="space-y-5"
+      className={cn(
+        'space-y-5',
+        onDarkSurface &&
+          '[&_input]:bg-sol-cream [&_textarea]:bg-sol-cream [&_input]:text-sol-ink [&_textarea]:text-sol-ink [&_input]:border-sol-cream/20 [&_textarea]:border-sol-cream/20 [&_label]:text-sol-cream'
+      )}
     >
       <form.Field name="fullName">
         {(field) => (
@@ -99,7 +108,15 @@ export default function ContactForm() {
         <Button type="submit" size="lg" className="sm:min-w-32">
           Send message
         </Button>
-        <CallButton type="button" size="lg" variant="outline" />
+        <CallButton
+          type="button"
+          size="lg"
+          variant="outline"
+          className={cn(
+            onDarkSurface &&
+              'border-sol-cream/40 bg-transparent text-sol-cream hover:bg-sol-cream/10 hover:text-sol-cream'
+          )}
+        />
       </div>
     </form>
   )

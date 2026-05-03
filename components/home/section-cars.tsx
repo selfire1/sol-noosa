@@ -53,11 +53,17 @@ const cars = [
 
 export default function SectionCars() {
   return (
-    <div className="page-container py-24">
-      <div className="max-w-xl space-y-2 mb-16">
-        <p className="text-sm uppercase">Our fleet</p>
-        <h2 className="font-bold text-3xl">Pick your ride</h2>
-        <p>Subheadline</p>
+    <section id="fleet" className="page-container py-24">
+      <div className="max-w-xl space-y-2 mb-14">
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sol-brown">
+          Our fleet
+        </p>
+        <h2 className="font-display font-bold text-3xl md:text-4xl text-sol-brown leading-[1.15]">
+          Pick your ride
+        </h2>
+        <p className="text-sol-brown-soft leading-relaxed">
+          Five cars, all local, all yours from $69 a day.
+        </p>
       </div>
 
       <Swiper
@@ -74,29 +80,36 @@ export default function SectionCars() {
       >
         {cars.map((car) => (
           <SwiperSlide key={car.id} className="h-auto">
-            <article className="flex flex-col gap-4 rounded-lg border border-sol-beige bg-white p-4 h-full">
-              <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-sol-beige flex items-center justify-center text-sol-brown text-sm">
-                {/* TODO: replace with real car image */}
-                Car image
+            <article className="flex flex-col gap-4 rounded-2xl border border-sol-beige-deep bg-sol-paper p-4 h-full shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all">
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-sol-beige flex items-center justify-center text-sol-brown-soft text-sm italic">
+                {car.name} photo
               </div>
-              <div className="flex flex-col gap-1">
-                <h3 className="font-bold text-lg">{car.name}</h3>
-                <p className="text-sm text-muted-foreground">{car.type}</p>
+              <div className="flex flex-col gap-0.5">
+                <h3 className="font-bold text-lg text-sol-brown-deep">{car.name}</h3>
+                <p className="text-sm text-sol-brown-soft">{car.type}</p>
               </div>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <ul className="flex gap-3 text-sm text-sol-brown-soft">
                 <li>{car.seats} seats</li>
+                <li aria-hidden="true" className="opacity-50">·</li>
                 <li>{car.transmission}</li>
-                <li>From ${car.pricePerDay}/day</li>
               </ul>
-              <BookNowButton className="mt-auto w-full" />
+              <div className="mt-auto flex items-center justify-between gap-3 pt-2">
+                <p className="font-display font-bold text-2xl text-sol-yellow leading-none">
+                  ${car.pricePerDay}
+                  <span className="ml-1 text-sm font-normal not-italic text-sol-brown-soft font-sans">
+                    /day
+                  </span>
+                </p>
+                <BookNowButton variant="default" />
+              </div>
             </article>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-8">
         <CallButton size="lg" />
       </div>
-    </div>
+    </section>
   )
 }

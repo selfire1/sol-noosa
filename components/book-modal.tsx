@@ -9,6 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import ContactForm from './contact-form'
 
 export default function BookModal({ children }: { children: React.ReactNode }) {
   const { isPresented, setIsPresented } = useModal()
@@ -16,19 +17,17 @@ export default function BookModal({ children }: { children: React.ReactNode }) {
   return (
     <Dialog open={isPresented} onOpenChange={setIsPresented}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="min-w-[80vw]">
+      <DialogContent className="sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle>Get in touch now!</DialogTitle>
+          <DialogTitle className="font-display text-2xl text-sol-brown">
+            Get in touch now
+          </DialogTitle>
           <DialogDescription>
-            Lorem ad ut laboris ea Lorem labore sit qui proident. Pariatur duis est proident in eu
-            tempor. In nisi irure dolore anim aute pariatur. Reprehenderit non nisi laboris
-            cupidatat incididunt fugiat ullamco dolore nulla.
+            Drop us your details and we&rsquo;ll come back with what&rsquo;s available for your
+            dates.
           </DialogDescription>
         </DialogHeader>
-
-        {
-          // TODO: form: Full name, phone number, email, message
-        }
+        <ContactForm />
       </DialogContent>
     </Dialog>
   )

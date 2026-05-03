@@ -1,38 +1,42 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { headerLinks, socialLinks } from '@/lib/links'
 import Icon from './icon'
+import LogoImage from '@/public/logo.jpeg'
 
 export function Footer() {
   return (
-    <footer className="bg-gray-800 text-gray-200 mt-auto">
-      <div className="page-container py-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-sol-ink text-sol-cream/85 mt-auto">
+      <div className="page-container py-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3">
-          <div className="bg-gray-500 h-12 w-24 flex items-center justify-center text-sm">
-            Logo
+          <div className="bg-sol-cream rounded-xl p-2 w-24 h-24 flex items-center justify-center">
+            <Image
+              src={LogoImage}
+              alt="Sol Noosa Car Rentals"
+              className="h-full w-full object-contain"
+            />
           </div>
-          <div className="font-semibold text-white">Sol Noosa Car Rentals</div>
-          <p className="text-sm text-gray-400">
-            ABN: 00 000 000 000
-          </p>
+          <div className="font-bold text-sol-cream">Sol Noosa Car Rentals</div>
+          <p className="text-sm text-sol-cream/55">ABN: 00 000 000 000</p>
         </div>
 
         <div className="space-y-2 text-sm">
-          <div className="font-semibold text-white">Contact</div>
+          <div className="font-bold text-sol-cream">Contact</div>
           <p>123 Hastings Street</p>
           <p>Noosa Heads QLD 4567</p>
           <p>
-            <Link href="tel:00000000" className="hover:text-white">
+            <Link href="tel:00000000" className="hover:text-sol-yellow transition-colors">
               00 0000 0000
             </Link>
           </p>
         </div>
 
         <div className="space-y-2 text-sm">
-          <div className="font-semibold text-white">Site</div>
+          <div className="font-bold text-sol-cream">Site</div>
           <ul className="space-y-1">
             {headerLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-white">
+                <Link href={link.href} className="hover:text-sol-yellow transition-colors">
                   {link.label}
                 </Link>
               </li>
@@ -41,14 +45,14 @@ export function Footer() {
         </div>
 
         <div className="space-y-2 text-sm">
-          <div className="font-semibold text-white">Follow</div>
-          <ul className="flex gap-3">
+          <div className="font-bold text-sol-cream">Follow</div>
+          <ul className="flex gap-3.5">
             {socialLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
                   aria-label={link.label}
-                  className="hover:text-white"
+                  className="hover:text-sol-yellow transition-colors"
                 >
                   <Icon icon={link.icon} size={20} />
                 </Link>
@@ -58,8 +62,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-gray-700">
-        <div className="page-container py-4 text-xs text-gray-400">
+      <div className="border-t border-sol-cream/[0.12]">
+        <div className="page-container py-4 text-xs text-sol-cream/50">
           © {new Date().getFullYear()} Sol Noosa Car Rentals. All rights reserved.
         </div>
       </div>

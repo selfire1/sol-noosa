@@ -1,5 +1,7 @@
 # Working Notes
 
+Design system ported from `design_handoff_sol_noosa_design_system/` on 2026-05-03 — tokens live in `app/globals.css`, fonts in `app/layout.tsx`, kit reference at `ui_kits/marketing-site/`.
+
 Pages:
 
 - Home
