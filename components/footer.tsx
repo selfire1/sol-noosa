@@ -2,14 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { headerLinks, socialLinks } from '@/lib/links'
 import Icon from './icon'
-import LogoImage from '@/public/logo.jpeg'
+import LogoImage from '@/public/logo.png'
 
 export function Footer() {
   return (
     <footer className="bg-sol-ink text-sol-cream/85 mt-auto">
       <div className="page-container py-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3">
-          <div className="bg-sol-cream rounded-xl p-2 w-24 h-24 flex items-center justify-center">
+          <div className="bg-white rounded-xl p-1 w-24 h-24 flex items-center justify-center">
             <Image
               src={LogoImage}
               alt="Sol Noosa Car Rentals"
