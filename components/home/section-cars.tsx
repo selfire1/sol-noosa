@@ -103,7 +103,7 @@ export default function SectionCars() {
                     /day
                   </span>
                 </p>
-                <BookNowButton variant="default" />
+                <BookNowButton variant="secondary" />
               </div>
             </article>
           </SwiperSlide>

@@ -105,16 +105,16 @@ export default function ContactForm({ onDarkSurface = false }: ContactFormProps)
       </form.Field>
 
       <div className="flex flex-wrap gap-4 items-center pt-2">
-        <Button type="submit" size="lg" className="sm:min-w-32">
+        <Button type="submit" variant="secondary" size="lg" className="sm:min-w-32">
           Send message
         </Button>
         <CallButton
           type="button"
           size="lg"
-          variant="outline"
+          variant="ghost"
           className={cn(
             onDarkSurface &&
-              'border-sol-cream/40 bg-transparent text-sol-cream hover:bg-sol-cream/10 hover:text-sol-cream'
+              'bg-transparent text-sol-cream hover:bg-sol-cream/10 hover:text-sol-cream'
           )}
         />
       </div>
