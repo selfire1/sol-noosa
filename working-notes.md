@@ -18,3 +18,8 @@ TODO:
 - Spam protection for forms. Hook up to resend
 - remove phone number
 - call out over whatsapp
+- admin section
+  - uploads
+- show cars from admin section
+  - caching
+- emailing
