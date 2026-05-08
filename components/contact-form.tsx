@@ -5,7 +5,6 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 import { Label } from './ui/label'
-import CallButton from './call-button'
 import { cn } from '@/lib/utils'
 
 type ContactFormProps = {
@@ -108,15 +107,6 @@ export default function ContactForm({ onDarkSurface = false }: ContactFormProps)
         <Button type="submit" variant="secondary" size="lg" className="sm:min-w-32">
           Send message
         </Button>
-        <CallButton
-          type="button"
-          size="lg"
-          variant="ghost"
-          className={cn(
-            onDarkSurface &&
-              'bg-transparent text-sol-cream hover:bg-sol-cream/10 hover:text-sol-cream'
-          )}
-        />
       </div>
     </form>
   )

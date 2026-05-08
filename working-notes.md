@@ -16,3 +16,5 @@ TODO:
 - Consolidate spacing
 - Check responsiveness
 - Spam protection for forms. Hook up to resend
+- remove phone number
+- call out over whatsapp

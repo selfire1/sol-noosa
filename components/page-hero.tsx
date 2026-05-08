@@ -2,7 +2,6 @@ import Image, { type StaticImageData } from 'next/image'
 import type { ReactNode } from 'react'
 import HeroImage from '@/public/hero.jpg'
 import BookNowButton from '@/components/book-now-button'
-import CallButton from '@/components/call-button'
 
 type PageHeroProps = {
   eyebrow?: string
@@ -68,7 +67,6 @@ export default function PageHero({
           )}
           {showActions && (
             <div className="gap-4 items-center flex flex-wrap pt-2">
-              <CallButton size="lg" />
               <BookNowButton size="lg" />
             </div>
           )}

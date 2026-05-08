@@ -3,7 +3,7 @@ import HeroImage from '@/public/hero.jpg'
 import AboutImage from '@/public/about-image.jpg'
 import SolImage from '@/public/sol.png'
 import BookNowButton from '@/components/book-now-button'
-import CallButton from '@/components/call-button'
+import WhatsappButton from '@/components/whatsapp-button'
 
 const polaroids = [
   {
@@ -54,8 +54,8 @@ export default function SectionHero() {
             corporate speak — just keys, sunshine, and a full tank.
           </p>
           <div className="gap-4 items-center flex flex-wrap justify-center pt-2">
-            <CallButton size="lg" />
             <BookNowButton size="lg" />
+            <WhatsappButton size="lg" />
           </div>
         </div>
 

@@ -1,8 +1,4 @@
-import {
-  FacebookIcon,
-  InstagramIcon,
-  TiktokIcon,
-} from '@hugeicons/core-free-icons'
+import { WhatsappIcon } from '@hugeicons/core-free-icons'
 
 export const headerLinks = [
   // { label: 'Home', href: '/' },
@@ -11,8 +7,11 @@ export const headerLinks = [
   { label: 'Contact Us', href: '/contact' },
 ]
 
+export const whatsappNumber = '61423640634'
+export const whatsappLink = `https://wa.me/${whatsappNumber}`
+export const phoneNumber = '+61 423 640 634'
+export const phoneLink = 'tel:+61423640634'
+
 export const socialLinks = [
-  { label: 'Instagram', href: '#', icon: InstagramIcon },
-  { label: 'Facebook', href: '#', icon: FacebookIcon },
-  { label: 'TikTok', href: '#', icon: TiktokIcon },
+  { label: 'WhatsApp', href: whatsappLink, icon: WhatsappIcon },
 ]

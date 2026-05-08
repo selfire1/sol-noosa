@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { headerLinks, socialLinks } from '@/lib/links'
+import { headerLinks, phoneLink, phoneNumber, socialLinks } from '@/lib/links'
 import Icon from './icon'
 import LogoImage from '@/public/logo.png'
 
@@ -22,11 +22,10 @@ export function Footer() {
 
         <div className="space-y-2 text-sm">
           <div className="font-bold text-sol-cream">Contact</div>
-          <p>123 Hastings Street</p>
           <p>Noosa Heads QLD 4567</p>
           <p>
-            <Link href="tel:00000000" className="hover:text-sol-yellow transition-colors">
-              00 0000 0000
+            <Link href={phoneLink} className="hover:text-sol-yellow transition-colors">
+              {phoneNumber}
             </Link>
           </p>
         </div>
@@ -45,7 +44,7 @@ export function Footer() {
         </div>
 
         <div className="space-y-2 text-sm">
-          <div className="font-bold text-sol-cream">Follow</div>
+          <div className="font-bold text-sol-cream">Connect</div>
           <ul className="flex gap-3.5">
             {socialLinks.map((link) => (
               <li key={link.label}>

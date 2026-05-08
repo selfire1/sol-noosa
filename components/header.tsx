@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { headerLinks } from '@/lib/links'
 import BookNowButton from './book-now-button'
-import CallButton from './call-button'
+import WhatsappButton from './whatsapp-button'
 import MenuDrawer from './menu-drawer'
 import LogoImage from '@/public/logo.png'
 
@@ -35,8 +35,8 @@ export function Header() {
             ))}
           </nav>
           <div className="gap-2 items-center sm:flex hidden">
+            <WhatsappButton label="Text Us" />
             <BookNowButton />
-            <CallButton />
           </div>
           <MenuDrawer className="md:hidden" />
         </div>

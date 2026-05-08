@@ -6,7 +6,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import BookNowButton from '@/components/book-now-button'
-import CallButton from '@/components/call-button'
 
 const cars = [
   {

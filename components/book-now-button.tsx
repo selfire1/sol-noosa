@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 
 export default function BookNowButton({
   className,
-  variant = 'outline',
+  variant = 'default',
   ...props
 }: React.ComponentProps<typeof Button>) {
   return (

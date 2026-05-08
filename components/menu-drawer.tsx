@@ -13,7 +13,7 @@ import Icon from './icon'
 import Link from 'next/link'
 import { headerLinks } from '@/lib/links'
 import BookNowButton from './book-now-button'
-import CallButton from './call-button'
+import WhatsappButton from './whatsapp-button'
 
 export default function MenuDrawer({ className }: { className?: string }) {
   return (
@@ -44,8 +44,8 @@ export default function MenuDrawer({ className }: { className?: string }) {
           ))}
         </div>
         <div className="flex flex-col gap-2 mt-auto pb-2">
+          <WhatsappButton />
           <BookNowButton />
-          <CallButton />
         </div>
       </DrawerContent>
     </Drawer>
