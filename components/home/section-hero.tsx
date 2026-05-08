@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import HeroImage from '@/public/hero.jpg'
 import AboutImage from '@/public/about-image.jpg'
+import SolImage from '@/public/sol.png'
 import BookNowButton from '@/components/book-now-button'
 import CallButton from '@/components/call-button'
 
@@ -88,28 +89,15 @@ export default function SectionHero() {
 
 function SunDecoration() {
   return (
-    <svg
+    <Image
       aria-hidden
-      className="absolute left-1/2 top-12 -translate-x-1/2 w-[36rem] max-w-full opacity-20 pointer-events-none"
-      viewBox="0 0 400 400"
-      fill="none"
-    >
-      <circle cx="200" cy="200" r="80" fill="var(--sol-yellow)" />
-      {Array.from({ length: 16 }).map((_, i) => {
-        const angle = (i * 360) / 16
-        return (
-          <rect
-            key={i}
-            x="196"
-            y="40"
-            width="8"
-            height="60"
-            rx="3"
-            fill="var(--sol-yellow)"
-            transform={`rotate(${angle} 200 200)`}
-          />
-        )
-      })}
-    </svg>
+      src={SolImage}
+      alt=""
+      sizes="(min-width: 576px) 576px, 100vw"
+      quality={40}
+      loading="eager"
+      fetchPriority="high"
+      className="absolute left-1/2 top-12 -translate-x-1/2 w-[36rem] max-w-full h-auto opacity-10 pointer-events-none"
+    />
   )
 }
