@@ -1,3 +1,5 @@
 - we need some tagline eg. "affordable car rentals in Noosa", "easy car rentals in noosa"? what's your usp?
 - is calls or contact forms better?
 - "Why Sol Noosa" section needs your six real reasons — current copy is placeholder. Confirm: do you offer airport pickup, free cancellation window (currently 48h), 24/7 support line?
+- remove phone number
+- call out over whatsapp
