@@ -1,49 +1,115 @@
 import Image from 'next/image'
 import HeroImage from '@/public/hero.jpg'
+import AboutImage from '@/public/about-image.jpg'
 import BookNowButton from '@/components/book-now-button'
 import CallButton from '@/components/call-button'
-import { Button } from '@/components/ui/button'
+
+const polaroids = [
+  {
+    src: AboutImage,
+    alt: 'Blue rental car at golden hour',
+    caption: 'the kombi',
+    rotate: '-rotate-3',
+    objectPosition: 'center',
+  },
+  {
+    src: HeroImage,
+    alt: 'Noosa Main Beach',
+    caption: 'main beach',
+    rotate: 'rotate-2',
+    objectPosition: 'center 40%',
+  },
+  {
+    src: AboutImage,
+    alt: 'Coastal road on the Sunshine Coast',
+    caption: 'the long way home',
+    rotate: '-rotate-1',
+    objectPosition: 'left center',
+  },
+]
 
 export default function SectionHero() {
   return (
-    <section className="relative isolate overflow-hidden min-h-[36rem] flex items-center">
-      <Image
-        src={HeroImage}
-        alt="Noosa Main Beach"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover -z-10"
-      />
-      <div
-        className="absolute inset-0 -z-10"
-        style={{
-          background: 'linear-gradient(180deg, rgba(42,31,18,0) 30%, rgba(42,31,18,0.25) 100%)',
-        }}
-      />
-      <div className="page-container py-24 w-full">
-        <div className="flex flex-col gap-6 max-w-2xl">
+    <section className="relative isolate overflow-hidden bg-sol-cream">
+      <SunDecoration />
+
+      <div className="page-container relative pt-20 pb-24 lg:pt-28 lg:pb-32">
+        <div className="flex flex-col items-center text-center gap-6 max-w-3xl mx-auto">
+          <span className="font-hand text-sol-sunset text-3xl sm:text-4xl leading-none">
+            rolling out of noosa since &rsquo;19
+          </span>
           <h1
-            className="font-display font-bold text-sol-yellow leading-[0.95] tracking-[-0.01em] m-0"
-            style={{
-              fontSize: 'clamp(56px, 9vw, 110px)',
-              textShadow: 'var(--shadow-text-soft)',
-            }}
+            className="font-display font-bold text-sol-brown-deep leading-[0.95] tracking-[-0.01em] m-0"
+            style={{ fontSize: 'clamp(56px, 9vw, 112px)' }}
           >
-            Sol Noosa
+            <em className="not-italic font-display font-bold italic text-sol-yellow">
+              Sun-soaked
+            </em>
             <br />
-            Car Rentals
+            car rentals.
           </h1>
-          <p>
-            Two or three sentences about SUP. Non anim amet irure Lorem et ex eu laborum esse
-            officia est proident. Ad duis reprehenderit aute qui.
+          <p className="text-base sm:text-lg text-sol-brown-deep/80 max-w-lg">
+            A small, friendly fleet for the Sunshine Coast. No queues, no
+            corporate speak — just keys, sunshine, and a full tank.
           </p>
-          <div className="gap-4 items-center flex">
+          <div className="gap-4 items-center flex flex-wrap justify-center pt-2">
             <CallButton size="lg" />
             <BookNowButton size="lg" />
           </div>
         </div>
+
+        <div className="mt-16 lg:mt-20 flex flex-wrap justify-center gap-8 lg:gap-12">
+          {polaroids.map((p, i) => (
+            <div
+              key={i}
+              className={`relative ${p.rotate} bg-sol-paper p-2.5 pb-10 sm:p-3 sm:pb-12`}
+              style={{ boxShadow: 'var(--shadow-md)' }}
+            >
+              <div className="relative w-40 h-40 sm:w-48 sm:h-48 overflow-hidden bg-sol-beige">
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  sizes="(max-width: 640px) 10rem, 12rem"
+                  className="object-cover"
+                  style={{ objectPosition: p.objectPosition }}
+                />
+              </div>
+              <span className="absolute bottom-1.5 inset-x-0 text-center font-hand text-sol-brown-deep text-2xl leading-none">
+                {p.caption}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
+  )
+}
+
+function SunDecoration() {
+  return (
+    <svg
+      aria-hidden
+      className="absolute left-1/2 top-12 -translate-x-1/2 w-[36rem] max-w-full opacity-20 pointer-events-none"
+      viewBox="0 0 400 400"
+      fill="none"
+    >
+      <circle cx="200" cy="200" r="80" fill="var(--sol-yellow)" />
+      {Array.from({ length: 16 }).map((_, i) => {
+        const angle = (i * 360) / 16
+        return (
+          <rect
+            key={i}
+            x="196"
+            y="40"
+            width="8"
+            height="60"
+            rx="3"
+            fill="var(--sol-yellow)"
+            transform={`rotate(${angle} 200 200)`}
+          />
+        )
+      })}
+    </svg>
   )
 }
