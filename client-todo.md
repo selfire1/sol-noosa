@@ -2,3 +2,4 @@
 - is calls or contact forms better?
 - "Why Sol Noosa" section needs your six real reasons — current copy is placeholder. Confirm: do you offer airport pickup, free cancellation window (currently 48h), 24/7 support line?
 - need images
+- About page: placeholder copy on `Our Story` (founding year currently "2019") and `How we do things` sections — needs real history, real founder details, and a second image (currently reusing hero/about photos)
