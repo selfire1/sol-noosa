@@ -51,9 +51,10 @@ export function Footer() {
                 <Link
                   href={link.href}
                   aria-label={link.label}
-                  className="hover:text-sol-yellow transition-colors"
+                  className="hover:text-sol-yellow transition-colors flex items-center gap-1.5"
                 >
                   <Icon icon={link.icon} size={20} />
+                  {link.label}
                 </Link>
               </li>
             ))}
