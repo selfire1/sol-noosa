@@ -6,63 +6,29 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import BookNowButton from '@/components/book-now-button'
+import { cars } from '@/lib/cars'
 
-const cars = [
-  {
-    id: 'beach-cruiser',
-    name: 'Beach Cruiser',
-    type: 'Convertible',
-    seats: 4,
-    transmission: 'Automatic',
-    pricePerDay: 89,
-  },
-  {
-    id: 'coast-runner',
-    name: 'Coast Runner',
-    type: 'SUV',
-    seats: 5,
-    transmission: 'Automatic',
-    pricePerDay: 119,
-  },
-  {
-    id: 'noosa-classic',
-    name: 'Noosa Classic',
-    type: 'Sedan',
-    seats: 5,
-    transmission: 'Automatic',
-    pricePerDay: 79,
-  },
-  {
-    id: 'sunshine-wagon',
-    name: 'Sunshine Wagon',
-    type: 'Hatchback',
-    seats: 4,
-    transmission: 'Manual',
-    pricePerDay: 69,
-  },
-  {
-    id: 'hinterland-explorer',
-    name: 'Hinterland Explorer',
-    type: '4WD',
-    seats: 7,
-    transmission: 'Automatic',
-    pricePerDay: 149,
-  },
-]
+type SectionCarsProps = {
+  eyebrow?: string
+  title?: string
+  description?: string
+}
 
-export default function SectionCars() {
+export default function SectionCars({
+  eyebrow = 'Our fleet',
+  title = 'Pick your ride',
+  description = 'Five cars, all local, all yours from $69 a day.',
+}: SectionCarsProps = {}) {
   return (
     <section id="fleet" className="page-container py-24">
       <div className="max-w-xl space-y-2 mb-14">
         <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sol-brown">
-          Our fleet
+          {eyebrow}
         </p>
         <h2 className="font-display font-bold text-3xl md:text-4xl text-sol-brown leading-[1.15]">
-          Pick your ride
+          {title}
         </h2>
-        <p className="text-sol-brown-soft leading-relaxed">
-          Five cars, all local, all yours from $69 a day.
-        </p>
+        <p className="text-sol-brown-soft leading-relaxed">{description}</p>
       </div>
 
       <Swiper
