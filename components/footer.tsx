@@ -4,7 +4,8 @@ import { headerLinks, phoneLink, phoneNumber, socialLinks } from '@/lib/links'
 import Icon from './icon'
 import LogoImage from '@/public/logo.png'
 
-export function Footer() {
+export async function Footer() {
+  'use cache'
   return (
     <footer className="bg-sol-ink text-sol-cream/85 mt-auto">
       <div className="page-container py-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
