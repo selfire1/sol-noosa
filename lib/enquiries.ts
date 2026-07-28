@@ -4,6 +4,7 @@ import { headers } from 'next/headers'
 
 import { db } from '@/lib/db'
 import { enquiries } from '@/lib/db/schema'
+import { sendEnquiryNotification } from '@/lib/email'
 import {
   checkRateLimit,
   isHoneypotFilled,
@@ -71,17 +72,25 @@ export const submitEnquiry = async (
     return { status: 'invalid', errors }
   }
 
+  const cleaned = {
+    fullName: values.fullName.trim(),
+    phoneNumber: values.phoneNumber.trim(),
+    email: values.email.trim(),
+    message: values.message.trim(),
+  }
+  let receivedAt: Date
   try {
-    await db.insert(enquiries).values({
-      fullName: values.fullName.trim(),
-      phoneNumber: values.phoneNumber.trim(),
-      email: values.email.trim(),
-      message: values.message.trim(),
-    })
+    const inserted = await db
+      .insert(enquiries)
+      .values(cleaned)
+      .returning({ receivedAt: enquiries.receivedAt })
+    receivedAt = inserted[0]?.receivedAt ?? new Date()
   } catch (error) {
     console.error('Failed to store enquiry', error)
     return { status: 'error', message: GENERIC_ERROR }
   }
+
+  await sendEnquiryNotification({ ...cleaned, receivedAt })
 
   return { status: 'success' }
 }
