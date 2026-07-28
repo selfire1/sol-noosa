@@ -5,20 +5,23 @@ import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import Image from 'next/image'
 import BookNowButton from '@/components/book-now-button'
-import { cars } from '@/lib/cars'
+import type { FleetCar } from '@/lib/fleet'
 
 type SectionCarsProps = {
+  cars: FleetCar[]
+  description: string
   eyebrow?: string
   title?: string
-  description?: string
 }
 
 export default function SectionCars({
+  cars,
+  description,
   eyebrow = 'Our fleet',
   title = 'Pick your ride',
-  description = 'Five cars, all local, all yours from $69 a day.',
-}: SectionCarsProps = {}) {
+}: SectionCarsProps) {
   return (
     <section id="fleet" className="page-container py-24">
       <div className="max-w-xl space-y-2 mb-14">
@@ -47,8 +50,18 @@ export default function SectionCars({
         {cars.map((car) => (
           <SwiperSlide key={car.id} className="h-auto">
             <article className="flex flex-col gap-4 rounded-2xl border border-sol-beige-deep bg-sol-paper p-4 h-full shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all">
-              <div className="aspect-[4/3] w-full overflow-hidden rounded-md bg-sol-beige flex items-center justify-center text-sol-brown-soft text-sm italic">
-                {car.name} photo
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md bg-sol-beige flex items-center justify-center text-sol-brown-soft text-sm italic">
+                {car.imageUrl ? (
+                  <Image
+                    src={car.imageUrl}
+                    alt={car.name}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <>{car.name} photo</>
+                )}
               </div>
               <div className="flex flex-col gap-0.5">
                 <h3 className="font-bold text-lg text-sol-brown-deep">{car.name}</h3>

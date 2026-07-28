@@ -4,6 +4,7 @@ import SectionAbout from '@/components/noosa/section-about'
 import SectionWhy from '@/components/noosa/section-why'
 import SectionCars from '@/components/home/section-cars'
 import SectionContact from '@/components/home/section-contact'
+import { deriveFleetBlurb, getPublishedFleet } from '@/lib/fleet'
 
 export const metadata: Metadata = {
   title: 'Car Hire Noosa — easy, local car rentals from Sol Noosa',
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default function NoosaPage() {
+export default async function NoosaPage() {
+  const fleet = await getPublishedFleet()
   return (
     <main>
       <PageHero
@@ -32,9 +34,10 @@ export default function NoosaPage() {
       <SectionAbout />
       <SectionWhy />
       <SectionCars
+        cars={fleet}
         eyebrow="Noosa fleet"
         title="A fleet built for Noosa driving."
-        description="From easy-park hatchbacks for Hastings Street to seven-seat 4WDs for the Hinterland — five cars from $69 a day."
+        description={`From easy-park hatchbacks for Hastings Street to seven-seat 4WDs for the Hinterland. ${deriveFleetBlurb(fleet)}`}
       />
       <SectionContact
         title="Plan your Noosa trip with us"
