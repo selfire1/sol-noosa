@@ -3,6 +3,7 @@
 - "Why Sol Noosa" section needs your six real reasons — current copy is placeholder. Confirm: do you offer airport pickup, free cancellation window (currently 48h), 24/7 support line?
 - need images
 - About page: placeholder copy on `Our Story` (founding year currently "2019") and `How we do things` sections — needs real history, real founder details, and a second image (currently reusing hero/about photos)
-- Admin panel: which email address should receive contact enquiry notifications? We also need a domain we can verify for sending (e.g. `hello@yourdomain.com.au`)
-- Admin panel: one photo per car — you'll be able to upload these yourself once it's live, but we need at least one shot per vehicle to launch with. Landscape, roughly 4:3
-- Admin panel: you'll get a single password to log in and edit the fleet. Confirm who holds it
+- Admin panel: which email address should receive contact enquiry notifications? We also need a domain we can verify for sending (e.g. `hello@yourdomain.com.au`). *Currently running on Joschua's placeholder domain/address — swap `RESEND_FROM_EMAIL` and `ENQUIRY_NOTIFICATION_EMAIL` once the client provides theirs.*
+- Admin panel: one photo per car — you'll be able to upload these yourself once it's live (the edit screen has an Add photo button that works from a phone camera), but we need at least one shot per vehicle to launch with. Landscape, roughly 4:3
+- Admin panel: you'll get a single password to log in and edit the fleet. Confirm who holds it. *Note: changing the password logs out every signed-in session — that's the "lost phone" recovery path.*
+- Before launch: clear the test data listed at the bottom of `working-notes.md` (test enquiry rows, any leftover "Test Buggy" car)
