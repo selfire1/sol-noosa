@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import { Caladea, Cabin, Caveat } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import Providers from '@/lib/providers'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 
 const caladea = Caladea({
   subsets: ['latin'],
@@ -49,13 +46,7 @@ export default function RootLayout({
         caveat.variable
       )}
     >
-      <Providers>
-        <body className="min-h-full flex flex-col">
-          <Header />
-          {children}
-          <Footer />
-        </body>
-      </Providers>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   )
 }
