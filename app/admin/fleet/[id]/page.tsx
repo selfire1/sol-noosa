@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { eq } from 'drizzle-orm'
 
 import CarForm from '@/components/admin/car-form'
+import CarPhotoField from '@/components/admin/car-photo-field'
 import DeleteCarButton from '@/components/admin/delete-car-button'
 import { requireAdmin } from '@/lib/auth'
 import { db } from '@/lib/db'
@@ -29,6 +30,7 @@ export default async function EditCarPage({
         </Link>
         <h1 className="font-display font-bold text-2xl text-sol-brown-deep">Edit {car.name}</h1>
       </div>
+      <CarPhotoField carId={car.id} carName={car.name} imageUrl={car.imageUrl} />
       <CarForm
         action={updateCar.bind(null, car.id)}
         initialValues={{

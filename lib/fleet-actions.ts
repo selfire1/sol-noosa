@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation'
 import { requireAdmin } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { cars } from '@/lib/db/schema'
+import { utapi } from '@/lib/uploadthing'
 
 export type CarFormState = {
   errors: Record<string, string>
@@ -85,9 +86,43 @@ export const updateCar = async (
 
 export const deleteCar = async (id: string): Promise<void> => {
   await requireAdmin()
+  const existing = await db.query.cars.findFirst({
+    where: eq(cars.id, id),
+    columns: { imageKey: true },
+  })
   await db.delete(cars).where(eq(cars.id, id))
   updateTag('fleet')
+  if (existing?.imageKey) {
+    try {
+      await utapi.deleteFiles(existing.imageKey)
+    } catch (error) {
+      console.error('Failed to delete UploadThing file for deleted car', id, error)
+    }
+  }
   redirect('/admin/fleet')
+}
+
+export const setCarPhoto = async (
+  id: string,
+  imageUrl: string,
+  imageKey: string,
+): Promise<void> => {
+  await requireAdmin()
+  const existing = await db.query.cars.findFirst({
+    where: eq(cars.id, id),
+    columns: { imageKey: true },
+  })
+  // Write the new key first, then delete the old file — a failure mid-way
+  // leaves an orphaned upload rather than a car pointing at a deleted image.
+  await db.update(cars).set({ imageUrl, imageKey, updatedAt: new Date() }).where(eq(cars.id, id))
+  updateTag('fleet')
+  if (existing?.imageKey && existing.imageKey !== imageKey) {
+    try {
+      await utapi.deleteFiles(existing.imageKey)
+    } catch (error) {
+      console.error('Failed to delete superseded UploadThing file', existing.imageKey, error)
+    }
+  }
 }
 
 export const setCarPublished = async (id: string, published: boolean): Promise<void> => {
