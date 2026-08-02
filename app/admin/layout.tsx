@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import { Button } from '@/components/ui/button'
+import SubmitButton from '@/components/ui/submit-button'
 import { hasValidSession } from '@/lib/auth'
 import { logout } from '@/lib/auth/actions'
 
@@ -25,9 +26,9 @@ async function AdminNav() {
         <Link href="/admin/enquiries">Enquiries</Link>
       </Button>
       <form action={logout}>
-        <Button type="submit" variant="outline" size="lg" className="h-11">
+        <SubmitButton variant="outline" size="lg" className="h-11" pendingLabel="Logging out…">
           Log out
-        </Button>
+        </SubmitButton>
       </form>
     </nav>
   )

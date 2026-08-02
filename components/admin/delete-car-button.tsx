@@ -3,6 +3,7 @@
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
+import SubmitButton from '@/components/ui/submit-button'
 
 type DeleteCarButtonProps = {
   action: () => Promise<void>
@@ -46,9 +47,14 @@ export default function DeleteCarButton({ action, carName }: DeleteCarButtonProp
           Cancel
         </Button>
         <form action={action}>
-          <Button type="submit" variant="destructive" size="lg" className="w-full h-12">
+          <SubmitButton
+            variant="destructive"
+            size="lg"
+            className="w-full h-12"
+            pendingLabel="Deleting…"
+          >
             Yes, delete
-          </Button>
+          </SubmitButton>
         </form>
       </div>
     </div>

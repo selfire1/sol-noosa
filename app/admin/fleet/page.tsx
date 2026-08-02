@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { asc } from 'drizzle-orm'
 
 import { Button } from '@/components/ui/button'
+import SubmitButton from '@/components/ui/submit-button'
 import { requireAdmin } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { cars } from '@/lib/db/schema'
@@ -61,25 +62,34 @@ export default async function AdminFleetPage() {
               </div>
               <div className="flex items-center gap-2">
                 <form action={moveCar.bind(null, car.id, 'up')}>
-                  <Button type="submit" variant="outline" size="icon-lg" disabled={index === 0} aria-label={`Move ${car.name} up`}>
+                  <SubmitButton
+                    variant="outline"
+                    size="icon-lg"
+                    disabled={index === 0}
+                    aria-label={`Move ${car.name} up`}
+                  >
                     ↑
-                  </Button>
+                  </SubmitButton>
                 </form>
                 <form action={moveCar.bind(null, car.id, 'down')}>
-                  <Button
-                    type="submit"
+                  <SubmitButton
                     variant="outline"
                     size="icon-lg"
                     disabled={index === rows.length - 1}
                     aria-label={`Move ${car.name} down`}
                   >
                     ↓
-                  </Button>
+                  </SubmitButton>
                 </form>
                 <form action={setCarPublished.bind(null, car.id, !car.published)} className="flex-1">
-                  <Button type="submit" variant="outline" size="lg" className="w-full">
+                  <SubmitButton
+                    variant="outline"
+                    size="lg"
+                    className="w-full"
+                    pendingLabel={car.published ? 'Hiding…' : 'Publishing…'}
+                  >
                     {car.published ? 'Hide' : 'Publish'}
-                  </Button>
+                  </SubmitButton>
                 </form>
                 <Button asChild variant="secondary" size="lg" className="flex-1">
                   <Link href={`/admin/fleet/${car.id}`}>Edit</Link>
