@@ -1,18 +1,12 @@
 import Image from 'next/image'
 import HeroImage from '@/public/hero.jpg'
-import AboutImage from '@/public/about-image.jpg'
 import SolImage from '@/public/sol.png'
+import LongWayHomeImage from '@/public/the-long-way-home.jpg'
+import SlowDownImage from '@/public/slow-down.jpg'
 import BookNowButton from '@/components/book-now-button'
 import WhatsappButton from '@/components/whatsapp-button'
 
 const polaroids = [
-  {
-    src: AboutImage,
-    alt: 'Blue rental car at golden hour',
-    caption: 'the kombi',
-    rotate: '-rotate-3',
-    objectPosition: 'center',
-  },
   {
     src: HeroImage,
     alt: 'Noosa Main Beach',
@@ -21,11 +15,18 @@ const polaroids = [
     objectPosition: 'center 40%',
   },
   {
-    src: AboutImage,
+    src: LongWayHomeImage,
     alt: 'Coastal road on the Sunshine Coast',
     caption: 'the long way home',
     rotate: '-rotate-1',
     objectPosition: 'left center',
+  },
+  {
+    src: SlowDownImage,
+    alt: 'Blue rental car at golden hour',
+    caption: 'take it slow',
+    rotate: '-rotate-3',
+    objectPosition: 'center',
   },
 ]
 
