@@ -2,7 +2,7 @@ import Image from 'next/image'
 import HeroImage from '@/public/hero.jpg'
 import SolImage from '@/public/sol.png'
 import LongWayHomeImage from '@/public/the-long-way-home.jpg'
-import SlowDownImage from '@/public/slow-down.jpg'
+import MakingMemoriesImage from '@/public/making-memories.jpg'
 import BookNowButton from '@/components/book-now-button'
 import WhatsappButton from '@/components/whatsapp-button'
 
@@ -22,9 +22,9 @@ const polaroids = [
     objectPosition: 'left center',
   },
   {
-    src: SlowDownImage,
+    src: MakingMemoriesImage,
     alt: 'Blue rental car at golden hour',
-    caption: 'take it slow',
+    caption: 'making memories',
     rotate: '-rotate-3',
     objectPosition: 'center',
   },
