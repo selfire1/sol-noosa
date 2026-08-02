@@ -2,8 +2,6 @@ import { WhatsappIcon } from '@hugeicons/core-free-icons'
 
 export const headerLinks = [
   // { label: 'Home', href: '/' },
-  { label: 'Car Hire Noosa', href: '/noosa' },
-  { label: 'About', href: '/about' },
   { label: 'Contact Us', href: '/contact' },
 ]
 
